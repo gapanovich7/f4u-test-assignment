@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require __DIR__.'/../vendor/autoload.php';
+
+use App\Interfaces\Console\CreateDeliveryAddressCommand;
+use App\Interfaces\Console\UpdateDeliveryAddressCommand;
+use App\Interfaces\Console\RemoveDeliveryAddressCommand;
+use App\Interfaces\Console\ListDeliveryAddressCommand;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/../.env', __DIR__.'/../.env.local');
+
+$app = new Application();
+
+$app->add(new CreateDeliveryAddressCommand());
+$app->add(new UpdateDeliveryAddressCommand());
+$app->add(new RemoveDeliveryAddressCommand());
+$app->add(new ListDeliveryAddressCommand());
+
+$app->run();

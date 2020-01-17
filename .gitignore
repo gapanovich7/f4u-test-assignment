@@ -1,0 +1,5 @@
+.env.local
+.phpunit
+/phpunit.xml
+/vendor/
+/.idea/
